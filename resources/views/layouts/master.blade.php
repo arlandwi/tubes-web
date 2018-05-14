@@ -44,7 +44,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-     
+
        @guest
           <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
           <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
@@ -90,7 +90,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="{{asset('AdminLTE-3.0.0-alpha/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
         </div>
       </div>
 
@@ -117,7 +117,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <p>Anggota</p>
                 </a>
               </li>
-        
+
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -133,7 +133,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">Home</h1>
           </div><!-- /.col -->
-          
+
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -141,7 +141,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Main content -->
     <div class="content">
-      
+
     </div>
     <!-- /.content -->
   </div>
