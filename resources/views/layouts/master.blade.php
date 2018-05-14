@@ -90,7 +90,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="{{asset('AdminLTE-3.0.0-alpha/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
+          @guest
+          <a href="#" class="d-block">Guest</a>
+          @else
           <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+          @endguest
         </div>
       </div>
 
