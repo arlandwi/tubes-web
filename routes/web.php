@@ -12,10 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('layout.master');
+    return view('layouts.master');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::group(['prefix' => 'admin'], function(){
+  Route::get('/login', 'AuthAdmin\LoginController@showLoginForm')->name('admin.login');
+  Route::post('/login', 'AuthAdmin\LoginController@login')->name('admin.login.submit');
+  Route::get('/', 'admincontroller@index')->name('admin.home');
+
+});
