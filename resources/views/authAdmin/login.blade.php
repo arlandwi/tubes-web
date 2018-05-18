@@ -4,13 +4,13 @@
 <div class="login-box">
     <div class="login-logo">
         <a href="">
-            <b><img style="width: 40px;height: 40px;" src="{{asset('AdminLTE-3.0.0-alpha/dist/img/logobuku1.png')}}">Perpustakaan</b>
-                Online
+            Online
+            <b><img style="width: 40px;height: 40px;" src="{{asset('AdminLTE-3.0.0-alpha/dist/img/coba.png')}}">Library</b>
         </a>
     </div>
     <div class="card">
         <div class="card-body login-card-body">
-            <p class="login-box-msg">Login Admin</p>
+            <p class="login-box-msg">Log In as Admin</p>
             <form method="POST" action="{{ route('admin.login.submit') }}">
                 @csrf
                 <div class="form-group">
@@ -46,7 +46,7 @@
 
                         <div class="form-group">
                             <button type="submit" class="btn btn-block btn-outline-primary">
-                                    {{ __('Login') }}
+                                    {{ __('Log In') }}
                             </button>
 
                             <a class="btn btn-link" href="{{ route('password.request') }}">

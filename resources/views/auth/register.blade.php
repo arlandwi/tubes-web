@@ -4,18 +4,18 @@
 <div class="login-box">
     <div class="login-logo">
         <a href="">
-            <b><img style="width: 40px;height: 40px;" src="{{asset('AdminLTE-3.0.0-alpha/dist/img/logobuku1.png')}}">Perpustakaan</b>
-                Online
+            Online
+            <b><img style="width: 40px;height: 40px;" src="{{asset('AdminLTE-3.0.0-alpha/dist/img/coba.png')}}"> Library</b>
         </a>
     </div>    
             <div class="card">
                 <div class="card-body login-card-body">
-                     <p class="login-box-msg"><b>Form Pendaftaran</b></p>
+                     <p class="login-box-msg"><b>Register Form</b></p>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="form-group">
-                            <label for="name">{{ __('Nama') }}</label>
+                            <label for="name">{{ __('Name') }}</label>
 
                                 <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
 
@@ -58,11 +58,11 @@
 
                         <div class="form-group">
                               <button type="submit" class="btn btn-block btn-outline-warning">
-                                    {{ __('Daftar') }}
+                                    {{ __('Sign Up') }}
                                 </button>
                                 <br>
-                            <p style="text-align: center;">Sudah Menjadi Anggota?</p>
-                            <button class="btn btn-block btn-outline-info"><a  href="{{ route('login') }}" style="text-decoration: none; color: black;">Login Sekarang</a></button>
+                            <p style="text-align: center;">Already have an account?</p>
+                            <button class="btn btn-block btn-outline-info"><a  href="{{ route('login') }}" style="text-decoration: none; color: black;">Log In Now</a></button>
                         </div>
                     </form>
                 </div>

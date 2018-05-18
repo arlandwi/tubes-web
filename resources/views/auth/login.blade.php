@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
-@section('content') 
+@section('content')
 <div class="login-box">
     <div class="login-logo">
         <a href="">
-            <b><img style="width: 40px;height: 40px;" src="{{asset('AdminLTE-3.0.0-alpha/dist/img/logobuku1.png')}}">Perpustakaan</b>
-                Online
+            Online
+            <b><img style="width: 40px;height: 40px;" src="{{asset('AdminLTE-3.0.0-alpha/dist/img/coba.png')}}"> Library</b>
         </a>
-    </div>        
+    </div>
     <div class="card">
         <div class="card-body login-card-body">
-            <p class="login-box-msg">Login Untuk Akses Fitur Lainnya</p>
+            <p class="login-box-msg">Login Form</p>
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="form-group">
@@ -33,7 +33,7 @@
                             <strong>{{ $errors->first('password') }}</strong>
                             </span>
                         @endif
-                            
+
                 </div>
 
                 <div class="form-group">
@@ -46,15 +46,15 @@
 
                         <div class="form-group">
                             <button type="submit" class="btn btn-block btn-outline-primary">
-                                    {{ __('Login') }}
+                                    {{ __('Log In') }}
                             </button>
 
                             <a class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                             </a>
                             <br>
-                            <p style="text-align: center;">Belum Menjadi Anggota?</p>
-                            <button class="btn btn-block btn-outline-warning"><a  href="{{ route('register') }}" style="text-decoration: none; color: black;">Daftar</a></button>
+                            <p style="text-align: center;">Don't have an account?</p>
+                            <button class="btn btn-block btn-outline-warning"><a  href="{{ route('register') }}" style="text-decoration: none; color: black;">Sign Up</a></button>
                         </div>
             </form>
         </div>
