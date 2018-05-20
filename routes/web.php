@@ -12,11 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('layouts.master');
+    return view('auth.login');
 });
 
 Auth::routes();
-
+Route::get('/buku', function (){
+	return view('buku.index');
+});
+Route::resource('buku','bukucontroller');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin'], function(){
