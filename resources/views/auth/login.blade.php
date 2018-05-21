@@ -53,10 +53,11 @@
                                     {{ __('Forgot Your Password?') }}
                             </a>
                             <br>
-                            <p style="text-align: center;">Don't have an account?</p>
-                            <button class="btn btn-block btn-outline-warning"><a  href="{{ route('register') }}" style="text-decoration: none; color: black;">Sign Up</a></button>
+                            
                         </div>
             </form>
+            <p style="text-align: center;">Don't have an account?</p>
+                            <button class="btn btn-block btn-outline-warning"><a  href="{{ route('register') }}" style="text-decoration: none; color: black;">Sign Up</a></button>
         </div>
      </div>
 </div>

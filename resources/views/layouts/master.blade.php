@@ -184,5 +184,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('AdminLTE-3.0.0-alpha/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('AdminLTE-3.0.0-alpha/dist/js/adminlte.min.js')}}"></script>
+
+<script >
+  $('#edit').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var id_buku = button.data('id_buku')
+  var judul = button.data('judul')
+  var pengarang = button.data('pengarang')
+  var penerbit = button.data('penerbit')
+  var tahun = button.data('tahun')
+  var lokasi = button.data('lokasi')
+
+
+ 
+  var modal = $(this)
+  modal.find('.modal-body #id_buku').val(id_buku)
+  modal.find('.modal-body #judul').val(judul)
+  modal.find('.modal-body #pengarang').val(pengarang)
+  modal.find('.modal-body #penerbit').val(penerbit)
+  modal.find('.modal-body #tahun').val(tahun)
+  modal.find('.modal-body #lokasi').val(lokasi)
+})
+
+ $('#delete').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var id_buku = button.data('id_buku')
+ 
+  var modal = $(this)
+  modal.find('.modal-body #id_buku').val(id_buku)
+})  
+</script>
 </body>
 </html>
