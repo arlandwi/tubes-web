@@ -108,6 +108,8 @@ class bukucontroller extends Controller
     public function destroy(Request $request)
     {
         $mahasiswa = \DB::table('bukus')->select('id_buku')->where('id_buku', $request->input('id_buku'));
+        $cover = $request->input('cover');
+        unlink(public_path().'/storage/upload/'.$cover);
         $mahasiswa->delete();
 
         return back();

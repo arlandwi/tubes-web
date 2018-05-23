@@ -209,9 +209,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
  $('#delete').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Button that triggered the modal
   var id_buku = button.data('id_buku')
+  var cover = button.data('cover')
  
   var modal = $(this)
   modal.find('.modal-body #id_buku').val(id_buku)
+    modal.find('.modal-body #cover').val(cover)
 })  
 </script>
 </body>

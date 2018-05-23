@@ -39,7 +39,7 @@
 									  Edit
 									</button>
 
-									<button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#delete" data-id_buku="{{$buk->id_buku}}">
+									<button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#delete" data-id_buku="{{$buk->id_buku}}" data-cover="{{$buk->cover}}">
 									  Delete
 									</button>
 
@@ -204,6 +204,7 @@
 					        		<div class="card-body">
 					        			<div class="form-group">
 					        				<input class="form-control" type="hidden" name="id_buku" id="id_buku" value="">
+					        				<input class="form-control" type="hidden" name="cover" id="cover" value="">
 					        				<p>Apakah Anda Yakin?</p>
 					        			</div>
 
