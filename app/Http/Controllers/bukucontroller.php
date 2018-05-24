@@ -84,9 +84,19 @@ class bukucontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+      $cover=$request->file('cover')->getClientOriginalName();
+      $request->file('cover')->storeAs('public/upload', $cover);
+      $mahasiswa = \DB::table('bukus')->select('id_buku')->where('id_buku', $request->input('id_buku'));
+      $mahasiswa->update(['judul_buku' => $request->input('judul')]);
+      $mahasiswa->update(['cover' => $cover]);
+      $mahasiswa->update(['pengarang_buku' => $request->input('pengarang')]);
+      $mahasiswa->update(['penerbit_buku' => $request->input('penerbit')]);
+      $mahasiswa->update(['tahun_buku' => $request->input('tahun')]);
+      $mahasiswa->update(['lokasi' => $request->input('lokasi')]);
+
+      return back();
     }
 
     /**
@@ -95,8 +105,13 @@ class bukucontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $mahasiswa = \DB::table('bukus')->select('id_buku')->where('id_buku', $request->input('id_buku'));
+        $cover = $request->input('cover');
+        unlink(public_path().'/storage/upload/'.$cover);
+        $mahasiswa->delete();
+
+        return back();
     }
 }
