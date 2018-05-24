@@ -28,3 +28,4 @@ Route::group(['prefix' => 'admin'], function(){
   Route::get('/', 'admincontroller@index')->name('admin.home');
 
 });
+

@@ -30,6 +30,7 @@
 </head>
 <body>
     <div id="app">
+        @yield('content')
 
         <main class="py-4">
         </main>
