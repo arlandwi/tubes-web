@@ -23,6 +23,7 @@ class admincontroller extends Controller
      */
     public function index()
     {
-        return view('admin');
+        $count = \DB::table('bukus')->count();
+        return view('admin')->with("count", $count);
     }
 }

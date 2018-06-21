@@ -21,6 +21,7 @@
 								<th>Penerbit</th>
 								<th>Tahun</th>
 								<th>Lokasi Rak</th>
+								<th>Status</th>
 								<th>Modify</th>
 							</tr>
 							@foreach($bukus as $buk)
@@ -28,12 +29,19 @@
 								<td>{{$buk->id_buku}}</td>
 								<td>{{$buk->judul_buku}}</td>
 								<td>
-									<img src="{{asset('storage/upload/')}}/{{$buk->cover}}" style="width: 30px;height: 30px;">
+									<img src="{{asset('storage/upload/')}}/{{$buk->cover}}" style="width: 40px;height: 40px;">
 								</td>
 								<td>{{$buk->pengarang_buku}}</td>
 								<td>{{$buk->penerbit_buku}}</td>
 								<td>{{$buk->tahun_buku}}</td>
 								<td>{{$buk->lokasi}}</td>
+								<td>
+									@if($buk->status === 'Ada')
+									<button class="btn btn-block btn-success btn-sm" >{{$buk->status}}</button>
+									@else
+									<button class="btn btn-block btn-danger btn-sm">{{$buk->status}}</button>
+									@endif
+								</td>
 								<td>
 									<button type="button" class="btn btn-outline-info btn-sm" data-id_buku="{{$buk->id_buku}}"  data-judul="{{$buk->judul_buku}}" data-pengarang="{{$buk->pengarang_buku}}" data-penerbit="{{$buk->penerbit_buku}}" data-tahun="{{$buk->tahun_buku}}" data-lokasi="{{$buk->lokasi}}" data-toggle="modal" data-target="#edit">
 									  Edit
@@ -91,6 +99,14 @@
 					        			<div class="form-group">
 					        				<label>Lokasi Rak</label>
 					        				<input class="form-control" type="text" name="lokasi" id="lokasi" placeholder="Masukkan Lokasi Rak Buku">
+					        			</div>
+
+					        			<div class="form-group">
+					        				<label>Status</label>
+					        				<select class="form-control" name="status" id="status">
+					        					<option>Ada</option>
+					        					<option>Dipinjam</option>
+					        				</select> 
 					        			</div>
 
 					        			<div class="form-group">
@@ -159,6 +175,14 @@
 					        			<div class="form-group">
 					        				<label>Lokasi Rak</label>
 					        				<input class="form-control" type="text" name="lokasi" id="lokasi" placeholder="Masukkan Lokasi Rak Buku">
+					        			</div>
+
+					        			<div class="form-group">
+					        				<label>Status</label>
+					        				<select class="form-control" name="status" id="status">
+					        					<option>Ada</option>
+					        					<option>Dipinjam</option>
+					        				</select> 
 					        			</div>
 
 					        			<div class="form-group">

@@ -18,6 +18,7 @@ class bukucontroller extends Controller
        return view('buku.index',compact('bukus'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -41,6 +42,7 @@ class bukucontroller extends Controller
         $penerbit = $request->input('penerbit');
         $tahun = $request->input('tahun');
         $lokasi = $request->input('lokasi');
+        $status = $request->input('status');
         $cover = $request->file('cover')->getClientOriginalName();
         $request->file('cover')->storeAs('public/upload', $cover);
         $buku = new buku;
@@ -49,6 +51,7 @@ class bukucontroller extends Controller
         $buku->penerbit_buku = $penerbit;
         $buku->tahun_buku = $tahun;
         $buku->lokasi = $lokasi;
+        $buku->status = $status;
         $buku->cover = $cover;
         $buku->save();
 
@@ -86,15 +89,28 @@ class bukucontroller extends Controller
      */
     public function update(Request $request)
     {
-      $cover=$request->file('cover')->getClientOriginalName();
-      $request->file('cover')->storeAs('public/upload', $cover);
-      $mahasiswa = \DB::table('bukus')->select('id_buku')->where('id_buku', $request->input('id_buku'));
-      $mahasiswa->update(['judul_buku' => $request->input('judul')]);
-      $mahasiswa->update(['cover' => $cover]);
-      $mahasiswa->update(['pengarang_buku' => $request->input('pengarang')]);
-      $mahasiswa->update(['penerbit_buku' => $request->input('penerbit')]);
-      $mahasiswa->update(['tahun_buku' => $request->input('tahun')]);
-      $mahasiswa->update(['lokasi' => $request->input('lokasi')]);
+       $cover=$request->file('cover'); 
+      if ($cover === null) {
+            $mahasiswa = \DB::table('bukus')->select('id_buku')->where('id_buku', $request->input('id_buku'));
+            $mahasiswa->update(['judul_buku' => $request->input('judul')]);
+            $mahasiswa->update(['pengarang_buku' => $request->input('pengarang')]);
+            $mahasiswa->update(['penerbit_buku' => $request->input('penerbit')]);
+            $mahasiswa->update(['tahun_buku' => $request->input('tahun')]);
+            $mahasiswa->update(['lokasi' => $request->input('lokasi')]);
+            $mahasiswa->update(['status' => $request->input('status')]);
+        
+        }else{
+            $cover=$request->file('cover')->getClientOriginalName();
+            $request->file('cover')->storeAs('public/upload', $cover);
+            $mahasiswa = \DB::table('bukus')->select('id_buku')->where('id_buku', $request->input('id_buku'));
+            $mahasiswa->update(['judul_buku' => $request->input('judul')]);
+            $mahasiswa->update(['pengarang_buku' => $request->input('pengarang')]);
+            $mahasiswa->update(['penerbit_buku' => $request->input('penerbit')]);
+            $mahasiswa->update(['tahun_buku' => $request->input('tahun')]);
+            $mahasiswa->update(['lokasi' => $request->input('lokasi')]);
+            $mahasiswa->update(['status' => $request->input('status')]);
+            $mahasiswa->update(['cover' => $cover]);
+        }  
 
       return back();
     }
@@ -113,5 +129,11 @@ class bukucontroller extends Controller
         $mahasiswa->delete();
 
         return back();
+    }
+
+    public function count()
+    {
+        $count = \DB::table('bukus')->count();
+        return view('admin')->with("count", $count);
     }
 }

@@ -20,6 +20,8 @@ Route::get('/buku', function (){
 	return view('buku.index');
 });
 
+Route::get('/homeadmin', 'bukucontroller@count');
+
 Route::resource('buku','bukucontroller');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user/logout', 'Auth\LoginController@logoutUser')->name('user.logout');

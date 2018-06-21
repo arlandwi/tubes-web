@@ -55,9 +55,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
 
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                  onclick="event.preventDefault();
-                  document.getElementById('logout-form').submit();">
+                <a class="dropdown-item" href="{{ url('admin/logout') }}"
+                 >
                   {{ __('Logout') }}
                 </a>
 
@@ -104,7 +103,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{url('/homeadmin')}}" class="nav-link">
                   <i class="fa fa-home nav-icon"></i>
                   <p>Home</p>
                 </a>

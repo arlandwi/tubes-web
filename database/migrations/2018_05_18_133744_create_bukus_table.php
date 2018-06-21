@@ -21,6 +21,7 @@ class CreateBukusTable extends Migration
             $table->string('tahun_buku');
             $table->string('lokasi');
             $table->string('cover');
+            $table->string('status');
 
             $table->timestamps();
         });
