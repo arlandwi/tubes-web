@@ -51,4 +51,17 @@ class LoginController extends Controller
 
       return redirect()->back()->withInput($request->only('email', 'remember'));
     }
+
+     /**
+    * Log the user out of the application.
+    *
+    * @param \Illuminate\Http\Request $request
+    * @return \Illuminate\Http\Response
+    */
+
+    public function logout()
+    {
+        Auth::guard('admin')->logout();
+        return redirect('/admin');
+    }
 }

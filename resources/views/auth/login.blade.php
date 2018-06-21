@@ -9,7 +9,7 @@
         </a>
     </div>
     <div class="card">
-        <div class="card-body login-card-body">
+        <div class="card-body login-card-body">                         
             <p class="login-box-msg">Login Form</p>
             <form method="POST" action="{{ route('login') }}">
                 @csrf

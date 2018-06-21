@@ -28,7 +28,7 @@
 								<td>{{$buk->id_buku}}</td>
 								<td>{{$buk->judul_buku}}</td>
 								<td>
-									<img src="{{asset('storage/upload/')}}/{{$buk->cover}}" style="width: 50px;height: 50px;">
+									<img src="{{asset('storage/upload/')}}/{{$buk->cover}}" style="width: 30px;height: 30px;">
 								</td>
 								<td>{{$buk->pengarang_buku}}</td>
 								<td>{{$buk->penerbit_buku}}</td>
