@@ -131,9 +131,6 @@ class bukucontroller extends Controller
         return back();
     }
 
-    public function count()
-    {
-        $count = \DB::table('bukus')->count();
-        return view('admin')->with("count", $count);
-    }
+
+
 }

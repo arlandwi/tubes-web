@@ -30,17 +30,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </li>
     </ul>
 
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fa fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
+    
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -55,8 +45,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
 
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ url('admin/logout') }}"
-                 >
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                 onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();">
                   {{ __('Logout') }}
                 </a>
 
@@ -97,32 +88,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
       </div>
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-              <li class="nav-item">
-                <a href="{{url('/admin')}}" class="nav-link">
-                  <i class="fa fa-home nav-icon"></i>
-                  <p>Home</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('buku')}}" class="nav-link">
-                  <i class="fa fa-book nav-icon"></i>
-                  <p>Books</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-user-circle nav-icon"></i>
-                  <p>Members</p>
-                </a>
-              </li>
-
-      </nav>
-      <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
   </aside>
@@ -184,36 +149,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- AdminLTE App -->
 <script src="{{asset('AdminLTE-3.0.0-alpha/dist/js/adminlte.min.js')}}"></script>
 
-<script >
-  $('#edit').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Button that triggered the modal
-  var id_buku = button.data('id_buku')
-  var judul = button.data('judul')
-  var pengarang = button.data('pengarang')
-  var penerbit = button.data('penerbit')
-  var tahun = button.data('tahun')
-  var lokasi = button.data('lokasi')
 
-
- 
-  var modal = $(this)
-  modal.find('.modal-body #id_buku').val(id_buku)
-  modal.find('.modal-body #judul').val(judul)
-  modal.find('.modal-body #pengarang').val(pengarang)
-  modal.find('.modal-body #penerbit').val(penerbit)
-  modal.find('.modal-body #tahun').val(tahun)
-  modal.find('.modal-body #lokasi').val(lokasi)
-})
-
- $('#delete').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Button that triggered the modal
-  var id_buku = button.data('id_buku')
-  var cover = button.data('cover')
- 
-  var modal = $(this)
-  modal.find('.modal-body #id_buku').val(id_buku)
-    modal.find('.modal-body #cover').val(cover)
-})  
-</script>
 </body>
 </html>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\buku;
 
 class HomeController extends Controller
 {
@@ -21,8 +22,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('/user');
+        if ($request->input('search')===null) {
+            $search = null;
+            return view('user')->with("search", $search);
+        }else{
+            $search = buku::all()->where('judul_buku', $request->input('search'));
+            return view('user')->with("search", $search);    
+        }
+        
     }
 }
