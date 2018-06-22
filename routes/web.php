@@ -16,9 +16,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/buku', function (){
-	return view('buku.index');
-});
+Route::get('/admin/buku','bukucontroller@index');
 
 Route::resource('buku','bukucontroller');
 Route::get('/home', 'HomeController@index')->name('home');
@@ -31,6 +29,3 @@ Route::group(['prefix' => 'admin'], function(){
   Route::get('/logout', 'AuthAdmin\LoginController@logout')->name('admin.logout');
 });
 
-Route::get('/user', function (){
-	return view('user');
-});

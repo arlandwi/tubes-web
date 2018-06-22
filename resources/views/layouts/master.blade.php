@@ -109,7 +109,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('buku')}}" class="nav-link">
+                <a href="{{url('/admin/buku')}}" class="nav-link">
                   <i class="fa fa-book nav-icon"></i>
                   <p>Books</p>
                 </a>
