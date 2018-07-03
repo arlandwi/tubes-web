@@ -24,10 +24,16 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
+       
         if ($request->input('search')===null) {
-            $search = null;
-            return view('user')->with("search", $search);
-        }else{
+           $list = buku::all();
+           $search = null;
+            return view('user')->with("list", $list)->with("search", $search);
+        
+        }
+        
+
+        else{
             $search = buku::where('judul_buku', $request->input('search'))->orWhere('judul_buku', 'like', '%' . $request->input('search') . '%')->get();
             return view('user')->with("search", $search);    
         }

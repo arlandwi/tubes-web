@@ -28,7 +28,30 @@
 								<th>Lokasi Rak</th>
 								<th>Status</th>
 							</tr>
+
 							@if($search === null)
+
+							@foreach($list as $lis)
+							<tr style="text-align: center;">
+								<td>{{$lis->id_buku}}</td>
+								<td>{{$lis->judul_buku}}</td>
+								<td>
+									<img src="{{asset('storage/upload/')}}/{{$lis->cover}}" style="width: 40px;height: 40px;">
+								</td>
+								<td>{{$lis->pengarang_buku}}</td>
+								<td>{{$lis->penerbit_buku}}</td>
+								<td>{{$lis->tahun_buku}}</td>
+								<td>{{$lis->lokasi}}</td>
+								<td>
+									@if($lis->status === 'Ada')
+									<button class="btn btn-block btn-success btn-sm" >{{$lis->status}}</button>
+									@else
+									<button class="btn btn-block btn-danger btn-sm">{{$lis->status}}</button>
+									@endif
+								</td>
+								
+							</tr>
+							@endforeach
 
 							@else
 							@foreach($search as $sea)
