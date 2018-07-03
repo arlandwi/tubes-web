@@ -28,7 +28,7 @@ class HomeController extends Controller
             $search = null;
             return view('user')->with("search", $search);
         }else{
-            $search = buku::all()->where('judul_buku', $request->input('search'));
+            $search = buku::where('judul_buku', $request->input('search'))->orWhere('judul_buku', 'like', '%' . $request->input('search') . '%')->get();
             return view('user')->with("search", $search);    
         }
         
