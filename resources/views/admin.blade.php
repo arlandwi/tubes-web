@@ -12,7 +12,7 @@
 					<div class="icon">
 						<i class="fa fa-book nav-icon"></i>
 					</div>
-					<a href="{{url('buku')}}" class="small-box-footer">
+					<a href="{{url('admin/buku')}}" class="small-box-footer">
 						More Info
 						<i class="fa fa-arrow-circle-right"></i>
 					</a>	
