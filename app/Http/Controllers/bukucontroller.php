@@ -27,7 +27,7 @@ class bukucontroller extends Controller
         
 
         else{
-            $cari = buku::where('judul_buku', $request->input('search'))->orWhere('judul_buku', 'like', '%' . $request->input('search') . '%')->get();
+            $search = buku::where('judul_buku', $request->input('search'))->orWhere('judul_buku', 'like', '%' . $request->input('search') . '%')->get();
             return view('buku.index')->with("search", $search);    
         }
        

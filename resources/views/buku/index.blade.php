@@ -9,7 +9,7 @@
 	 		<div class="col-12">
 	 			<div class="invoice p-3 mb-3">
 					<label>Cari Buku</label>
-	 				<form class="form-inline" action="{{url('/home')}}">
+	 				<form class="form-inline" action="{{url('/admin/buku')}}">
 	 					<input class="form-control" type="search" name="search" id="search" placeholder="Masukkan Judul Buku" style="width: 500px">
 	 					<div class="input-group-append">
 	 						<button class="btn btn-navbar" type="submit">
@@ -86,6 +86,14 @@
 									<button class="btn btn-block btn-danger btn-sm">{{$ser->status}}</button>
 									@endif
 								</td>
+								<td>
+									<button type="button" class="btn btn-outline-info btn-sm" data-id_buku="{{$ser->id_buku}}"  data-judul="{{$ser->judul_buku}}" data-pengarang="{{$ser->pengarang_buku}}" data-penerbit="{{$ser->penerbit_buku}}" data-tahun="{{$ser->tahun_buku}}" data-lokasi="{{$ser->lokasi}}" data-toggle="modal" data-target="#edit">
+									  Edit
+									</button>
+
+									<button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#delete" data-id_buku="{{$ser->id_buku}}" data-cover="{{$ser->cover}}">
+									  Delete
+									</button>
 							</tr>
 							@endforeach
 							@endif
