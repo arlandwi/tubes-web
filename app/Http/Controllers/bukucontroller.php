@@ -16,10 +16,22 @@ class bukucontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $bukus = buku::all();
-       return view('buku.index',compact('bukus'));
+    public function index(Request $request)
+    {   
+        if ($request->input('search')===null) {
+            $bukus = buku::all();
+           $search = null;
+            return view('buku.index')->with("bukus", $bukus)->with("search", $search);
+        
+        }
+        
+
+        else{
+            $cari = buku::where('judul_buku', $request->input('search'))->orWhere('judul_buku', 'like', '%' . $request->input('search') . '%')->get();
+            return view('buku.index')->with("search", $search);    
+        }
+       
+
     }
 
 

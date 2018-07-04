@@ -4,11 +4,20 @@
 
 @section('content')
 
-	<div class="row">
-		<div class="col-12">
-			<div class="card card-info">
-				<div class="card-header">
-					<h3 class="card-title">Daftar Buku</h3>
+	<div class="container-fluid">
+	 	<div class="row">
+	 		<div class="col-12">
+	 			<div class="invoice p-3 mb-3">
+					<label>Cari Buku</label>
+	 				<form class="form-inline" action="{{url('/home')}}">
+	 					<input class="form-control" type="search" name="search" id="search" placeholder="Masukkan Judul Buku" style="width: 500px">
+	 					<div class="input-group-append">
+	 						<button class="btn btn-navbar" type="submit">
+	 							<i class="fa fa-search"></i>
+	 						</button>
+	 					</div>
+	 				</form>
+					
 				</div>
 				<div class="card-body table-responsive p-0">
 					<table class="table table-hover">
@@ -24,6 +33,9 @@
 								<th>Status</th>
 								<th>Modify</th>
 							</tr>
+
+							@if($search === null)	
+
 							@foreach($bukus as $buk)
 							<tr style="text-align: center;">
 								<td>{{$buk->id_buku}}</td>
@@ -54,6 +66,30 @@
 							</td>
 							</tr>
 							@endforeach
+
+							@else
+							@foreach($search as $ser)
+							<tr style="text-align: center;">
+								<td>{{$ser->id_buku}}</td>
+								<td>{{$ser->judul_buku}}</td>
+								<td>
+									<img src="{{asset('storage/upload/')}}/{{$ser->cover}}" style="width: 40px;height: 40px;">
+								</td>
+								<td>{{$ser->pengarang_buku}}</td>
+								<td>{{$ser->penerbit_buku}}</td>
+								<td>{{$ser->tahun_buku}}</td>
+								<td>{{$ser->lokasi}}</td>
+								<td>
+									@if($ser->status === 'Ada')
+									<button class="btn btn-block btn-success btn-sm" >{{$ser->status}}</button>
+									@else
+									<button class="btn btn-block btn-danger btn-sm">{{$ser->status}}</button>
+									@endif
+								</td>
+							</tr>
+							@endforeach
+							@endif
+
 						</tbody>
 					</table>
 
